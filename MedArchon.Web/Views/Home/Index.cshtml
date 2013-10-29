@@ -1,0 +1,65 @@
+﻿@section scripts {
+    <script type="text/javascript">
+        Global.Routing.Initialize();
+        
+        Global.Routing.AddRoute('', 'Todos: Do them now', '@Url.Content("~/App/Task/")' + 'tasklist.html', function (container) {
+            Global.Api.Task.List(function (result) {
+                var taskListViewModel = new TaskListViewModel();
+                console.log('made it 1');
+
+                for (var i in result)
+                    taskListViewModel.Tasks.push(new TaskListItem(result[i]));
+
+                console.log('made it 2');
+
+                ko.applyBindings(taskListViewModel, $(container)[0]);
+            });
+        });
+
+    	Global.Routing.AddRoute('Task/{id}', "Task Detail", '@Url.Content("~/App/Task/")' + 'taskview.html', function (container, id) {
+    		Global.Api.Task.View(id, function (result) {
+    			var taskViewModel = new TaskViewModel();
+    			ko.mapping.fromJSWithoutTracking(result, {}, taskViewModel);
+    			ko.applyBindings(taskViewModel, $(container)[0]);
+    		});
+    	});
+
+        Global.Routing.AddExceptionRoute('Error', "Error", '@Url.Content("~/App/Global/")' + "err500.html");
+
+    	crossroads.bypassed.add(function (request) {
+    		$.get('@Url.Content("~/App/Global/")' + "err404.html", function (data) {
+        		$('#content').html(data);
+        	});
+        });
+
+        crossroads.parse(window.History.getState().hash);
+
+        Global.Routing.Linkify($("#main-nav"));
+
+        // Default validation message when other validation cannot be determined.
+        ko.validation.rules.pattern.message = 'Invalid.';
+
+        ko.validation.configure({
+            registerExtenders: true,
+            messagesOnModified: true,
+            insertMessages: true,
+            parseInputAttributes: true
+        });
+
+        toastr.options = {
+            "debug": false,
+            "positionClass": "toast-bottom-right",
+            "onclick": null,
+            "fadeIn": 300,
+            "fadeOut": 1000,
+            "timeOut": 5000,
+            "extendedTimeOut": 1000
+        };
+
+        // Set knockout validation images' title attribute.
+        $(document).on('mouseover', ".validationMessage, .customMessage", null, function(evt) {
+            evt.stopPropagation();
+            evt.target.title = $(evt.target).text();
+        });
+    </script>
+}

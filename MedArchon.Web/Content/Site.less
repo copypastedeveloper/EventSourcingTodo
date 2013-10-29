@@ -1,0 +1,231 @@
+﻿// Styles related to changing the size of the forms button background for a modals.
+.form-actions-small {
+	padding: 9px 10px 10px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	background-color: #f5f5f5;
+	border-top: 1px solid #e5e5e5;
+	*zoom: 1;
+}
+
+.form-actions-small:before, .form-actions-small:after {
+	display: table;
+	content: "";
+	line-height: 0;
+}
+
+.form-actions-small:after {
+	clear: both;
+}
+
+// Icons in page headers.
+h3 i {
+	padding-right: 10px;
+}
+
+// Style used with file upload controls.
+.btn-file {
+	position: relative;
+}
+
+// Links on the navigation menu.
+.nav.nav-list li a {
+	font-size: 11px;
+}
+
+// Input control's label.
+.dataEntryLabel {
+	font-weight: bold;
+}
+
+// Override default bootstrap behavior of indenting all control rows other than the first one for elements with controls-row class.
+.row-fluid [class*="span"] .controls-row {
+	margin-left: 0;
+}
+
+// Label control that wraps the checkbox input element and the controls label text.
+.checkBoxLabel {
+	// Move checkbox label combination onto the same line.
+	display: block;
+	padding-left: 15px;
+	text-indent: -15px;
+
+	input {
+		vertical-align: top;
+	}
+}
+
+.k-picker-wrap .k-input {
+	// Kendo datepickers need a bottom margin to display the bottom line of the input field.
+	margin-bottom: 1px;
+}
+
+// Kendo datepicker wrapper needs additional bottom margin to match up with bootstrap controls.
+.k-datepicker {
+	margin-bottom: 9px;
+}
+
+// Select2 screws up the Bootstrap input controls bottom margin.
+.controls-row .select2-container {
+	margin-bottom: 6px;
+}
+
+// Styles used for knockout.validation.
+.validationMessage {
+	background-image: url('images/exclamation.png');
+	background-repeat: no-repeat;
+	margin-left: 5px;
+	margin-bottom: 10px;
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	/* Hide the text. */
+    display: inline-block;
+	overflow: hidden;
+	font-size: 0px;
+}
+
+.customMessage {
+	.validationMessage
+}
+
+// This keeps the validation exclamation point inline with the control even on small resolutions.
+.validationControls {
+	white-space: nowrap;
+}
+
+.caseLabel {
+	text-align: right;
+	font-weight: bold;
+}
+
+.k-grid tbody tr {
+    font-size: 11px;
+}
+
+.k-grid thead tr {
+    font-size: 12px;
+}
+
+// Helps with accordion.
+// todo (Trello): Try to factor out usage of !important in CSS.
+li .k-content {
+	padding-left: 15px !important;
+	margin-top: 10px !important;
+}
+
+// Helps with accordion.
+// todo (Trello): Try to factor out usage of !important in CSS.
+.letterContainer {
+	height: 196px !important;
+}
+
+// Restore default bootstrap behavior instead of Flaty dark-theme.
+input[disabled], select[disabled], textarea[disabled], input[readonly], select[readonly], textarea[readonly] {
+	cursor: not-allowed;
+	background-color: #eeeeee;
+}
+
+@media (max-width: 768px) {
+	// todo (Trello): Try to factor out usage of !important in CSS.
+	// Style for all labels on the CaseView.
+	.caseLabel {
+		text-align: left;
+		margin-left: 2.127659574468085% !important;
+	}
+
+	// Flatty's dark theme was pushing into menu at small resolutions.
+	.page-header {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+}
+
+.navbar .brand {
+	// Keep distance from menu icon the same regardless of size.
+	margin-left: 5px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+// Style of Kendu spinner div.
+.k-loading-mask {
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	position: fixed !important; // Usage can vary therefore usage of !important is proper.
+}
+
+#wrapper {
+	// Overflow being hidden prevents extra space above nav menu.
+	overflow: hidden;
+}
+
+// Class for individual status bubbles at top of Grid.
+.status-group {
+    display: inline-block;
+	// Rely on page-header to provide padding between content and header.
+	margin: 0px 15px 15px 15px;
+}
+
+.status-group span {
+	margin-right: 5px;
+}
+
+.k-state-selected {
+	background-color: #00acec;
+    background-image: none, linear-gradient(rgb(0, 172, 236) 0px, rgb(0, 172, 236) 100%);
+    border-color: #00acec;
+}
+
+.k-grid td:first-child {
+	overflow: visible;
+}
+
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover, .nav-tabs > .active > a:focus {
+	background-color: #00acec;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.nav-tabs > li > a:hover {
+	border-bottom-color: #00acec;
+}
+
+ul.nav-tabs {
+	border-bottom-color: #00acec;
+}
+
+/*.actions .btn i {
+	font-size: 30px;
+}*/
+
+// Placeholder for site menu.
+#main-nav {
+	// This seems to have no affect on the menu but prevents adverse affects in the #content section.
+	height: 50px;
+}
+
+// Flatty assumes a standalone application error page.  This allows for standard layout content.
+.application-error {
+	padding-top: 0px;
+
+	#wrapper {
+		width: inherit;
+	}
+}
+
+// Current usage is only on the error pages.
+.errorContent {
+	margin-top: 50px;
+	padding-top: 30px;
+}
+
+.k-panelbar .k-content {
+    border-bottom: none;
+}
+
+li.k-file {
+    line-height: 2.66;
+}

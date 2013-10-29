@@ -1,0 +1,9 @@
+bundler and denormalizer failures will end up in an error queue.  
+to determine why a message failed review the log file located next to the executable.  
+there is no real way to recover from a failure at the moment.  you would need to purge the viewmodel database and replay all events.  this could be alleviated by creating an application that would read messages out of one queue and put them into another queue, but we don't have something like that at the moment.
+
+exceptions in the website will be logged.  users will be taken to an error page.  
+
+handled issues like validation and domain rule violations will be reported to the user but are not being logged in any way.
+
+there is a chance that users will not receive notifications for bundle completion if they click bundle and immediately log out of the application.  only notifications that occur after login are displayed, so if the bundling occurs while they are logged out they will not be notified.  they will still be able to view it, it will just be less in their face.

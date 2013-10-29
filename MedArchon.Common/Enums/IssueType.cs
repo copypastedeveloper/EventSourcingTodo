@@ -1,0 +1,36 @@
+﻿namespace MedArchon.Common.Enums
+{
+    public enum IssueType
+    {
+        Therapy,
+        ThreeDaySNF,
+        Rehab,
+        Psych,
+        Observation,
+        StrokeICH,
+        RespInf,
+        SimpPne,
+        Septicemia,
+        UnrelORPx,
+        MedCCMCC,
+        SurgCCMCC,
+        SingleCCMCC,
+        ExcisDeb,
+        VentSup,
+        TIA,
+        COPD,
+        PTCA,
+        Syncope,
+        CircSysDx,
+        DigSysDx,
+        MedBack,
+        SpinalFusion,
+        TwoDSVascPx,
+        TwoDSHF,
+        TwoDSCardArrhy,
+        TwoDSEsoGastro,
+        TwoDSNurtiMeta,
+        TwoDSRenalFail,
+        TwoDSExclTrans
+    }
+}

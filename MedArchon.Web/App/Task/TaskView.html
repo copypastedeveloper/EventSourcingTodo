@@ -1,0 +1,33 @@
+﻿<div>
+    <div class="page-header">
+        <div class="pull-left">
+            <h3><i class="icon-briefcase"></i>Task Information</h3>
+            <h5 data-bind="text: Name"></h5>
+        </div>
+        <div class="actions pull-right" data-bind="visible: !Complete()">
+            <button class="btn btn-large" title="Complete" data-delay="100" data-toggle="dropdown" data-bind="click: CompleteTask"><i class="icon-check icon-large"></i></button>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span5">
+            <div class="controls-row">
+                <div class="span5  caseLabel">Name</div>
+                <div class="span5" data-bind="text: Name" />
+            </div>
+            <div class="controls-row">
+                <div class="span5  caseLabel">Due Date</div>
+                <div class="span5" data-bind="dateString: DueDate" />
+            </div>
+            <div class="controls-row">
+                <div class="span5  caseLabel">Description</div>
+                <div class="span5" data-bind="text: Description" />
+            </div>
+        </div>
+        <div class="span5">
+            <h3>Notes</h3>
+            <ul data-bind="foreach: Notes">
+                <li data-bind="text:$data"></li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+﻿<div>
+    <h3 class="page-header"><i class="icon-tasks"></i>Todo</h3>
+
+    <ul id="tasklist" data-bind="foreach: Tasks">
+        <li><input type="checkbox" data-bind="checked: Completed"/><a data-bind="attr: { href: '/Task/' + Id, class: Completed ? 'strike' : '' }, text: Name"></a></li>
+    </ul>
+
+    <div class="row-fluid">
+        <div class="form-actions">
+            <a data-bind="click: Add" class="btn btn-primary">Add a Task</a>
+        </div>
+    </div>
+</div>
