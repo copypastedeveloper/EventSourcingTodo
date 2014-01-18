@@ -63,11 +63,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MedArchon.Common.Commands.Bus\Example.Common.Commands.Bus.csproj">
+    <ProjectReference Include="..\Example.Common.Commands.Bus\Example.Common.Commands.Bus.csproj">
       <Project>{7B21A66D-47E3-420A-92B1-AB7F2BFF74B3}</Project>
       <Name>Example.Common.Commands.Bus</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MedArchon.CommandBus\Example.CommandBus.csproj">
+    <ProjectReference Include="..\Example.CommandBus\Example.CommandBus.csproj">
       <Project>{3E2E23F6-41E2-46F4-9B81-5E00805534A4}</Project>
       <Name>Example.CommandBus</Name>
     </ProjectReference>

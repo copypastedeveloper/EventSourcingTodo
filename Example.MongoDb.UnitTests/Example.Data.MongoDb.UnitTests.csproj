@@ -77,15 +77,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MedArchon.Web.Denormalizer\Example.Web.Denormalizer.csproj">
+    <ProjectReference Include="..\Example.Web.Denormalizer\Example.Web.Denormalizer.csproj">
       <Project>{3C72CBD5-7622-42A5-B301-2819EC3C3302}</Project>
       <Name>Example.Web.Denormalizer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MedArchon.Web.ServiceContracts\Example.Web.ServiceContracts.csproj">
+    <ProjectReference Include="..\Example.Web.ServiceContracts\Example.Web.ServiceContracts.csproj">
       <Project>{703999E4-3771-42E2-AAA8-4B0E8B7DDAC4}</Project>
       <Name>Example.Web.ServiceContracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MedArchon.MongoDb\Example.Data.MongoDb.csproj">
+    <ProjectReference Include="..\Example.MongoDb\Example.Data.MongoDb.csproj">
       <Project>{01b15f3e-87e9-4a0f-b364-86ad8c7ac26a}</Project>
       <Name>Example.Data.MongoDb</Name>
     </ProjectReference>

@@ -87,11 +87,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MedArchon.Data.EventStore\Example.Data.EventStore.csproj">
+    <ProjectReference Include="..\Example.Data.EventStore\Example.Data.EventStore.csproj">
       <Project>{8AB1D6A0-63CB-4726-B5FA-7822F3405E99}</Project>
       <Name>Example.Data.EventStore</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MedArchon.Todo.Domain.Common\Example.Todo.Domain.Common.csproj">
+    <ProjectReference Include="..\Example.Todo.Domain.Common\Example.Todo.Domain.Common.csproj">
       <Project>{54b9e9bf-41ae-417e-9316-6ecc88f41cf3}</Project>
       <Name>Example.Todo.Domain.Common</Name>
     </ProjectReference>

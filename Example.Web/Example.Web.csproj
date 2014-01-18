@@ -847,27 +847,27 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MedArchon.Data.EventStore.ServiceContracts\Example.Data.EventStore.ServiceContracts.csproj">
+    <ProjectReference Include="..\Example.Data.EventStore.ServiceContracts\Example.Data.EventStore.ServiceContracts.csproj">
       <Project>{cef57d54-14c5-4e55-9dc4-ef89eeb0adae}</Project>
       <Name>Example.Data.EventStore.ServiceContracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MedArchon.Common.Commands.Bus\Example.Common.Commands.Bus.csproj">
+    <ProjectReference Include="..\Example.Common.Commands.Bus\Example.Common.Commands.Bus.csproj">
       <Project>{7B21A66D-47E3-420A-92B1-AB7F2BFF74B3}</Project>
       <Name>Example.Common.Commands.Bus</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MedArchon.Common.Commands\Example.Common.Commands.csproj">
+    <ProjectReference Include="..\Example.Common.Commands\Example.Common.Commands.csproj">
       <Project>{7CDEAC7A-92CB-4A81-BE5E-FB3D1D3A595A}</Project>
       <Name>Example.Common.Commands</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MedArchon.Common\Example.Common.csproj">
+    <ProjectReference Include="..\Example.Common\Example.Common.csproj">
       <Project>{84BB9250-0E85-4F86-9D52-0F579E91A384}</Project>
       <Name>Example.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MedArchon.Web.ServiceContracts\Example.Web.ServiceContracts.csproj">
+    <ProjectReference Include="..\Example.Web.ServiceContracts\Example.Web.ServiceContracts.csproj">
       <Project>{703999e4-3771-42e2-aaa8-4b0e8b7ddac4}</Project>
       <Name>Example.Web.ServiceContracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MedArchon.Web.ViewModels\Example.Web.ViewModels.csproj">
+    <ProjectReference Include="..\Example.Web.ViewModels\Example.Web.ViewModels.csproj">
       <Project>{E00F2B37-D268-414B-909A-575310B470A9}</Project>
       <Name>Example.Web.ViewModels</Name>
     </ProjectReference>

@@ -57,11 +57,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MedArchon.Todo.Domain.Common\Example.Todo.Domain.Common.csproj">
+    <ProjectReference Include="..\Example.Todo.Domain.Common\Example.Todo.Domain.Common.csproj">
       <Project>{54B9E9BF-41AE-417E-9316-6ECC88F41CF3}</Project>
       <Name>Example.Todo.Domain.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MedArchon.Todo.Domain\Example.Todo.Domain.csproj">
+    <ProjectReference Include="..\Example.Todo.Domain\Example.Todo.Domain.csproj">
       <Project>{D21AC340-32B3-4A66-8F3D-85F698BE307C}</Project>
       <Name>Example.Todo.Domain</Name>
     </ProjectReference>

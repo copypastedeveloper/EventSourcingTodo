@@ -50,11 +50,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MedArchon.Common.Commands.Bus\Example.Common.Commands.Bus.csproj">
+    <ProjectReference Include="..\Example.Common.Commands.Bus\Example.Common.Commands.Bus.csproj">
       <Project>{7b21a66d-47e3-420a-92b1-ab7f2bff74b3}</Project>
       <Name>Example.Common.Commands.Bus</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MedArchon.Common\Example.Common.csproj">
+    <ProjectReference Include="..\Example.Common\Example.Common.csproj">
       <Project>{84bb9250-0e85-4f86-9d52-0f579e91a384}</Project>
       <Name>Example.Common</Name>
     </ProjectReference>

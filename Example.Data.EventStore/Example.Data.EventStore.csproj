@@ -60,11 +60,11 @@
     <Compile Include="TypeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MedArchon.Common\Example.Common.csproj">
+    <ProjectReference Include="..\Example.Common\Example.Common.csproj">
       <Project>{84BB9250-0E85-4F86-9D52-0F579E91A384}</Project>
       <Name>Example.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MedArchon.Todo.Domain.Common\Example.Todo.Domain.Common.csproj">
+    <ProjectReference Include="..\Example.Todo.Domain.Common\Example.Todo.Domain.Common.csproj">
       <Project>{54B9E9BF-41AE-417E-9316-6ECC88F41CF3}</Project>
       <Name>Example.Todo.Domain.Common</Name>
     </ProjectReference>

@@ -46,7 +46,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MedArchon.Todo.Domain.Common\Example.Todo.Domain.Common.csproj">
+    <ProjectReference Include="..\Example.Todo.Domain.Common\Example.Todo.Domain.Common.csproj">
       <Project>{54B9E9BF-41AE-417E-9316-6ECC88F41CF3}</Project>
       <Name>Example.Todo.Domain.Common</Name>
     </ProjectReference>

@@ -51,27 +51,27 @@
     <Compile Include="ReopenTaskCommandHandler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MedArchon.CommandBus\Example.CommandBus.csproj">
+    <ProjectReference Include="..\Example.CommandBus\Example.CommandBus.csproj">
       <Project>{3e2e23f6-41e2-46f4-9b81-5e00805534a4}</Project>
       <Name>Example.CommandBus</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MedArchon.Common.Commands.Bus\Example.Common.Commands.Bus.csproj">
+    <ProjectReference Include="..\Example.Common.Commands.Bus\Example.Common.Commands.Bus.csproj">
       <Project>{7B21A66D-47E3-420A-92B1-AB7F2BFF74B3}</Project>
       <Name>Example.Common.Commands.Bus</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MedArchon.Common.Commands\Example.Common.Commands.csproj">
+    <ProjectReference Include="..\Example.Common.Commands\Example.Common.Commands.csproj">
       <Project>{7CDEAC7A-92CB-4A81-BE5E-FB3D1D3A595A}</Project>
       <Name>Example.Common.Commands</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MedArchon.Common\Example.Common.csproj">
+    <ProjectReference Include="..\Example.Common\Example.Common.csproj">
       <Project>{84BB9250-0E85-4F86-9D52-0F579E91A384}</Project>
       <Name>Example.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MedArchon.Todo.Domain.Common\Example.Todo.Domain.Common.csproj">
+    <ProjectReference Include="..\Example.Todo.Domain.Common\Example.Todo.Domain.Common.csproj">
       <Project>{54B9E9BF-41AE-417E-9316-6ECC88F41CF3}</Project>
       <Name>Example.Todo.Domain.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MedArchon.Todo.Domain\Example.Todo.Domain.csproj">
+    <ProjectReference Include="..\Example.Todo.Domain\Example.Todo.Domain.csproj">
       <Project>{D21AC340-32B3-4A66-8F3D-85F698BE307C}</Project>
       <Name>Example.Todo.Domain</Name>
     </ProjectReference>
