@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A7EE8897-7970-408E-86B2-AEF37655CB03}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Example.CommandHandlers</RootNamespace>
+    <AssemblyName>Example.CommandHandlers</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="StartupTask.cs" />
+    <Compile Include="CompleteTaskCommandHandler.cs" />
+    <Compile Include="CreateTaskCommandHandler.cs" />
+    <Compile Include="CommandHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReopenTaskCommandHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MedArchon.CommandBus\Example.CommandBus.csproj">
+      <Project>{3e2e23f6-41e2-46f4-9b81-5e00805534a4}</Project>
+      <Name>Example.CommandBus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MedArchon.Common.Commands.Bus\Example.Common.Commands.Bus.csproj">
+      <Project>{7B21A66D-47E3-420A-92B1-AB7F2BFF74B3}</Project>
+      <Name>Example.Common.Commands.Bus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MedArchon.Common.Commands\Example.Common.Commands.csproj">
+      <Project>{7CDEAC7A-92CB-4A81-BE5E-FB3D1D3A595A}</Project>
+      <Name>Example.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MedArchon.Common\Example.Common.csproj">
+      <Project>{84BB9250-0E85-4F86-9D52-0F579E91A384}</Project>
+      <Name>Example.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MedArchon.Todo.Domain.Common\Example.Todo.Domain.Common.csproj">
+      <Project>{54B9E9BF-41AE-417E-9316-6ECC88F41CF3}</Project>
+      <Name>Example.Todo.Domain.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MedArchon.Todo.Domain\Example.Todo.Domain.csproj">
+      <Project>{D21AC340-32B3-4A66-8F3D-85F698BE307C}</Project>
+      <Name>Example.Todo.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /iery "$(TargetDir)*.*" "$(SolutionDir)MedArchon.Web\bin\*"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
