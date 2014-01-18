@@ -41,6 +41,18 @@ namespace MedArchon.Data.EventStore
                         stream.Add(new EventMessage { Body = @event });
                     }
                     stream.CommitChanges(Guid.NewGuid());
+
+                    if (typeof(TEntity).IsAssignableToGenericType(typeof(ISnapshotable<>)))
+                    {
+                        var snapshot = _eventStore.Advanced.GetSnapshot(entity.Id, int.MaxValue);
+                        var lastSnapshotRevision = snapshot == null ? 0 : snapshot.StreamRevision;
+
+                        if (stream.StreamRevision - lastSnapshotRevision > 10)
+                        {
+                            var memento = typeof(TEntity).GetMethod("GetMemento").Invoke(entity, new object[0]);
+                            _eventStore.Advanced.AddSnapshot(new Snapshot(entity.Id, stream.StreamRevision, memento));
+                        }
+                    }
                 }
 
                 _commitActions.Add(entity.ClearUncommittedEvents);
@@ -50,10 +62,18 @@ namespace MedArchon.Data.EventStore
 
         TEntity BuildEntity<TEntity>(Guid id, int version) where TEntity : IEntity
         {
+            var minVersion = 0;
             var entity = _entityFactory.Create<TEntity>();
             entity.Id = id;
 
-            using (var stream = _eventStore.OpenStream(id, 0, version))
+            if (typeof(TEntity).IsAssignableToGenericType(typeof(ISnapshotable<>)))
+            {
+                var snapshot = _eventStore.Advanced.GetSnapshot(id, version);
+                typeof(TEntity).GetMethod("Hydrate").Invoke(entity, new object[] { snapshot.Payload });
+                minVersion = snapshot.StreamRevision;
+            }
+
+            using (var stream = _eventStore.OpenStream(id, minVersion, version))
             {
                 foreach (var @event in stream.CommittedEvents)
                 {

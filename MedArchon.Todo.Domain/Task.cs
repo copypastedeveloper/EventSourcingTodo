@@ -4,10 +4,11 @@ using MedArchon.Todo.Domain.Events;
 
 namespace MedArchon.Todo.Domain
 {
-    public class Task : DomainEntity
+    public class Task : DomainEntity, ISnapshotable<TaskMemento>
     {
-        public DateTime DueDate { get; set; }
-        public bool Complete { get; set; }
+        public DateTime DueDate { get; private set; }
+        public bool Complete { get; private set; }
+        public string Name { get; private set; }
 
         protected Task() {}
 
@@ -40,6 +41,7 @@ namespace MedArchon.Todo.Domain
         {
             Id = @event.TaskId;
             DueDate = @event.DueDate;
+            Name = @event.TaskName;
         }
 
         public void Apply(TaskCompleted @evemt)
@@ -51,5 +53,24 @@ namespace MedArchon.Todo.Domain
         {
             Complete = false;
         }
+
+        TaskMemento ISnapshotable<TaskMemento>.GetMemento()
+        {
+            return new TaskMemento {Complete = Complete, Name = Name, DueDate = DueDate};
+        }
+
+        void ISnapshotable<TaskMemento>.Hydrate(TaskMemento memento)
+        {
+            Name = memento.Name;
+            Complete = memento.Complete;
+            DueDate = memento.DueDate;
+        }
+    }
+
+    public class TaskMemento
+    {
+        public DateTime DueDate { get; set; }
+        public bool Complete { get; set; }
+        public string Name { get; set; }
     }
 }
