@@ -46,10 +46,11 @@ namespace Example.Data.EventStore
                     {
                         var snapshot = _eventStore.Advanced.GetSnapshot(entity.Id, int.MaxValue);
                         var lastSnapshotRevision = snapshot == null ? 0 : snapshot.StreamRevision;
+                        dynamic snapshotable = entity;
 
-                        if (stream.StreamRevision - lastSnapshotRevision > 10)
+                        if (stream.StreamRevision - lastSnapshotRevision > snapshotable.MaxAllowedRevisionsBetweenSnapshots)
                         {
-                            var memento = typeof(TEntity).GetMethod("GetMemento").Invoke(entity, new object[0]);
+                            var memento = snapshotable.GetMemento();
                             _eventStore.Advanced.AddSnapshot(new Snapshot(entity.Id, stream.StreamRevision, memento));
                         }
                     }
@@ -69,8 +70,12 @@ namespace Example.Data.EventStore
             if (typeof(TEntity).IsAssignableToGenericType(typeof(ISnapshotable<>)))
             {
                 var snapshot = _eventStore.Advanced.GetSnapshot(id, version);
-                typeof(TEntity).GetMethod("Hydrate").Invoke(entity, new object[] { snapshot.Payload });
-                minVersion = snapshot.StreamRevision;
+                if (snapshot != null)
+                {
+                    dynamic snapshotable = entity;
+                    snapshotable.Hydrate(snapshot.Payload);
+                    minVersion = snapshot.StreamRevision;
+                }
             }
 
             using (var stream = _eventStore.OpenStream(id, minVersion, version))

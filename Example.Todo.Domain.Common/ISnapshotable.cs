@@ -4,5 +4,6 @@
     {
         TMemento GetMemento();
         void Hydrate(TMemento memento);
+        int MaxAllowedRevisionsBetweenSnapshots { get; }
     }
 }

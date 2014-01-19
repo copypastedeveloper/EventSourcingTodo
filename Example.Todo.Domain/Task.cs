@@ -54,17 +54,19 @@ namespace Example.Todo.Domain
             Complete = false;
         }
 
-        TaskMemento ISnapshotable<TaskMemento>.GetMemento()
+        public TaskMemento GetMemento()
         {
             return new TaskMemento {Complete = Complete, Name = Name, DueDate = DueDate};
         }
 
-        void ISnapshotable<TaskMemento>.Hydrate(TaskMemento memento)
+        public void Hydrate(TaskMemento memento)
         {
             Name = memento.Name;
             Complete = memento.Complete;
             DueDate = memento.DueDate;
         }
+
+        int ISnapshotable.MaxAllowedRevisionsBetweenSnapshots { get { return 5; } }
     }
 
     public class TaskMemento
